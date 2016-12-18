@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #look at the difference
     root 'pages#home'
     get 'about', to: 'pages#about'
+    
+    #new path for articles
+    resources :articles
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

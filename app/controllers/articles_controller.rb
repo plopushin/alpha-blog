@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   
   def index 
     #grab all articles from database
-    @articles = Article.all
+    #paginte gem -> grabs number of items on page
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end 
   
   def new

@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   #for some methods to call, but have to select them.
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  #require_user comes from application controller
+  #uses except here as there are fewer that don't require it
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index 
     #grab all articles from database
@@ -57,3 +61,11 @@ class ArticlesController < ApplicationController
     end 
     
 end 
+  #ensure it is the same user...eg. different user can't edit if going to path
+  def require_same_user
+    #checks if current user is not the article creator
+    if current_user != @article.user
+      flash[:danger] = "You can only edit or delete own articles"
+      redirect_to root_path
+    end 
+  end 

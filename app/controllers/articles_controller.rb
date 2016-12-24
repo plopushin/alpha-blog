@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
     #use debugger to find things. 
     @article = Article.new(article_params)
     @article.user = current_user
-    
     if @article.save
       #do something
       flash[:success] = "Aritlce was created"

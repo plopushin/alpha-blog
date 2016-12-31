@@ -14,6 +14,9 @@
           </small>
           </div>
         </div>
+        <% if article.categories.any? %>
+          <p>Categories: <%= render article.categories %></p>
+        <% end %>
         <!-- If you are logged in or not an admin, different menu options are available -->
           <% if logged_in? && (current_user == article.user || current_user.admin?) %>
             <div class="article-actions">

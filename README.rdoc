@@ -1,3 +1,5 @@
 This is the repo for alpha-blog app. Built with rails. 
 
 Heroku: https://alpha-blog-pauul.herokuapp.com/
+
+Run locally by cloning/donwloading, open directory in terminal, and run using "rails server", and go to localhost:3000 in your browser.
